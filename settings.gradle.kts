@@ -1,0 +1,1 @@
+rootProject.name = "whisper-ai-speech-to-text"
