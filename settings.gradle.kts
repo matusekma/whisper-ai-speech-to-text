@@ -1,1 +1,1 @@
-rootProject.name = "whisper-ai-speech-to-text"
+rootProject.name = "hu.matusek.whisper-ai-speech-to-text"

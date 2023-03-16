@@ -1,6 +1,7 @@
 val ktor_version: String by project
 val kotlin_version: String by project
 val logback_version: String by project
+val openai_version: String by project
 
 plugins {
     kotlin("jvm") version "1.8.10"
@@ -11,7 +12,7 @@ plugins {
 group = "hu.matusek"
 version = "0.0.1"
 application {
-    mainClass.set("hu.matusek.ApplicationKt")
+    mainClass.set("io.ktor.server.netty.EngineMain")
 
     val isDevelopment: Boolean = project.ext.has("development")
     applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")
@@ -28,7 +29,9 @@ dependencies {
     implementation("io.ktor:ktor-server-auth-jvm:$ktor_version")
     implementation("io.ktor:ktor-server-cors-jvm:$ktor_version")
     implementation("io.ktor:ktor-server-call-logging-jvm:$ktor_version")
-    implementation("io.ktor:ktor-client-jetty:$ktor_version")
+    implementation("io.ktor:ktor-client-cio:$ktor_version")
+    implementation ("com.aallam.openai:openai-client:$openai_version")
+    implementation("io.ktor:ktor-server-html-builder:$ktor_version")
     implementation("io.ktor:ktor-server-netty-jvm:$ktor_version")
     implementation("ch.qos.logback:logback-classic:$logback_version")
     testImplementation("io.ktor:ktor-server-tests-jvm:$ktor_version")
